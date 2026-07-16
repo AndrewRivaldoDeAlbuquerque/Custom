@@ -17,11 +17,11 @@ export const Route = createFileRoute("/")({
         content:
           "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado.",
       },
-      { property: "og:title", content: "Custom Care | Consultoria Tecnológica" },
+      { property: "og:title", content: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
       {
         property: "og:description",
         content:
-          "Softwares sob medida, consultoria e squads dedicadas para escalar seu negócio com tecnologia.",
+          "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado.",
       },
       { property: "og:type", content: "website" },
     ],

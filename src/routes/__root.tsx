@@ -77,21 +77,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Custom Care | Consultoria Tecnológica" },
+      { title: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
       {
         name: "description",
         content:
-          "Consultoria tecnológica e softwares sob medida para transformar sua empresa.",
+          "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado.",
       },
       { name: "author", content: "Custom Care" },
-      { property: "og:title", content: "Custom Care | Consultoria Tecnológica" },
+      { property: "og:title", content: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
       {
         property: "og:description",
         content:
-          "Consultoria tecnológica e softwares sob medida para transformar sua empresa.",
+          "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
+      { name: "twitter:description", content: "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/11ebc1ea-7039-4a67-82bf-2808b9e77e7f/id-preview-5b6a1859--3e0a0fe3-3ee3-40fd-b696-c2da9167a2f6.lovable.app-1784167809545.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/11ebc1ea-7039-4a67-82bf-2808b9e77e7f/id-preview-5b6a1859--3e0a0fe3-3ee3-40fd-b696-c2da9167a2f6.lovable.app-1784167809545.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
