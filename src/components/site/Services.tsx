@@ -1,11 +1,6 @@
-import { Code2, Cloud, LineChart, ShieldCheck, Cpu, Users } from "lucide-react";
+import { Cloud, LineChart, ShieldCheck, Cpu, Users } from "lucide-react";
 
 const services = [
-  {
-    icon: Code2,
-    title: "Desenvolvimento de Software",
-    desc: "Aplicações web e mobile sob medida, construídas com tecnologias modernas e foco em performance.",
-  },
   {
     icon: LineChart,
     title: "Consultoria Estratégica",

@@ -40,8 +40,8 @@ export function Contact() {
             <div className="mt-10 space-y-4">
               {[
                 { icon: Mail, label: "contato@customcare.com.br" },
-                { icon: Phone, label: "+55 (11) 99999-9999" },
-                { icon: MapPin, label: "São Paulo • Atendimento remoto no Brasil" },
+                { icon: Phone, label: "+55 (81) 98787-1423" },
+                { icon: MapPin, label: "Atendimento remoto no Brasil" },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-3 text-white/80">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 border border-white/10 backdrop-blur-sm">

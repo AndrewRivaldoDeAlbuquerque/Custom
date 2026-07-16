@@ -29,8 +29,8 @@ export function Footer() {
             <div className="font-semibold text-sm mb-3">Contato</div>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>contato@customcare.com.br</li>
-              <li>+55 (11) 99999-9999</li>
-              <li>São Paulo, Brasil</li>
+              <li>+55 (81) 98787-1423</li>
+              <li>Brasil</li>
             </ul>
           </div>
         </div>
