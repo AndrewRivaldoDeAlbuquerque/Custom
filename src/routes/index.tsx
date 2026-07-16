@@ -43,6 +43,7 @@ function HomePage() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }
