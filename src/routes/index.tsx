@@ -8,21 +8,22 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { CookieConsent } from "@/components/site/CookieConsent";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
+      { title: "Custom Care | Consultoria Tecnológica" },
       {
         name: "description",
         content:
-          "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado.",
+          "Consultoria tecnológica para estruturar, orientar e escalar o seu negócio. Transformamos desafios em estratégias que geram resultado.",
       },
-      { property: "og:title", content: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
+      { property: "og:title", content: "Custom Care | Consultoria Tecnológica" },
       {
         property: "og:description",
         content:
-          "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado.",
+          "Consultoria tecnológica para estruturar, orientar e escalar o seu negócio. Transformamos desafios em estratégias que geram resultado.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -44,6 +45,7 @@ function HomePage() {
       </main>
       <Footer />
       <WhatsAppFloat />
+      <CookieConsent />
     </div>
   );
 }

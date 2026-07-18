@@ -157,8 +157,10 @@
   transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
   &:hover {
     transform: translateY(-1px);
-    box-shadow: var(--shadow-elegant);
-    filter: brightness(1.05);
+    box-shadow:
+      var(--shadow-elegant),
+      0 0 28px color-mix(in oklab, var(--brand-400) 45%, transparent);
+    filter: brightness(1.06);
   }
 }
 @utility btn-ghost {
@@ -173,7 +175,7 @@
   color: var(--color-foreground);
   background: transparent;
   border: 1px solid var(--color-border);
-  transition: background-color 200ms ease, border-color 200ms ease;
+  transition: background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
   &:hover {
     background-color: var(--color-accent);
     border-color: transparent;
@@ -186,4 +188,166 @@
 }
 @utility animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+@keyframes attention-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+@utility animate-attention {
+  animation: attention-pulse 2.2s ease-in-out infinite;
+  will-change: transform;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+@utility animate-ken-burns {
+  animation: ken-burns 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.08); }
+}
+@utility animate-glow-pulse {
+  animation: glow-pulse 10s ease-in-out infinite;
+}
+
+@keyframes grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 48px 48px; }
+}
+
+/* Scroll reveal — only hide after JS mounts (.reveal-pending) */
+.reveal.reveal-pending {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero entrance stagger */
+.hero-enter {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: hero-enter 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--enter-delay, 0ms);
+}
+@keyframes hero-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tech card hover */
+.tech-card {
+  position: relative;
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 280ms ease,
+    border-color 280ms ease;
+}
+.tech-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in oklab, var(--brand-400) 45%, transparent);
+  box-shadow:
+    var(--shadow-elegant),
+    0 0 0 1px color-mix(in oklab, var(--brand-400) 18%, transparent),
+    0 12px 40px -16px color-mix(in oklab, var(--brand-500) 28%, transparent);
+}
+.tech-card-icon {
+  transition: box-shadow 280ms ease, filter 280ms ease;
+}
+.tech-card:hover .tech-card-icon {
+  box-shadow: 0 0 24px color-mix(in oklab, var(--brand-400) 55%, transparent);
+  filter: brightness(1.08);
+}
+
+/* Mouse spotlight on service cards */
+.spotlight-card {
+  --spot-x: 50%;
+  --spot-y: 50%;
+}
+.spotlight-card-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 350ms ease;
+  background: radial-gradient(
+    420px circle at var(--spot-x) var(--spot-y),
+    color-mix(in oklab, var(--brand-400) 18%, transparent),
+    transparent 55%
+  );
+}
+.spotlight-card:hover .spotlight-card-glow {
+  opacity: 1;
+}
+.spotlight-card-glow-light {
+  background: radial-gradient(
+    420px circle at var(--spot-x) var(--spot-y),
+    rgba(255, 255, 255, 0.22),
+    transparent 55%
+  );
+}
+
+/* Dot grid / tech texture */
+.tech-grid {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--brand-400) 28%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
+  animation: grid-drift 40s linear infinite;
+  opacity: 0.35;
+}
+
+.tech-grid-light {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, black 15%, transparent 80%);
+  animation: grid-drift 36s linear infinite;
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.reveal-pending {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-enter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .animate-ken-burns,
+  .animate-glow-pulse,
+  .animate-float,
+  .animate-attention,
+  .tech-grid,
+  .tech-grid-light {
+    animation: none !important;
+  }
+  .tech-card:hover {
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

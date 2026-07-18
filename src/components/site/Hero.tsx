@@ -1,56 +1,79 @@
-import heroVideo from "@/assets/hero-tech.mp4.asset.json";
-import { ArrowRight, Sparkles } from "lucide-react";
+import heroVideo from "@/assets/hero-tech.mp4";
+import heroPoster from "@/assets/hero-bg.jpg";
+import type { CSSProperties } from "react";
+import { CountUp } from "@/components/site/Reveal";
+
+const stats = [
+  { end: 100, prefix: "+", suffix: "", label: "Projetos entregues" },
+  { end: 98, prefix: "", suffix: "%", label: "Clientes satisfeitos" },
+  { end: 10, prefix: "", suffix: "+", label: "Anos de experiência" },
+];
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden text-white min-h-screen flex items-center justify-center">
+    <section
+      id="top"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden text-white"
+    >
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        src={heroVideo.url}
+        poster={heroPoster}
+        className="absolute inset-0 h-full w-full object-cover animate-ken-burns"
+        src={heroVideo}
       />
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/60 to-background/80" />
-      <div aria-hidden className="absolute inset-0 gradient-hero opacity-60 mix-blend-multiply" />
+      {/* Dark scrim so headline/CTA stay readable over the video */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/75"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.35)_100%)]"
+      />
 
-      <div className="relative mx-auto max-w-4xl px-6 py-32 md:py-40 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium">
-          <Sparkles className="h-3.5 w-3.5 text-primary-glow" />
-          Consultoria em Tecnologia & Software Sob Medida
-        </span>
-        <h1 className="mt-6 text-4xl md:text-6xl font-semibold leading-[1.05]">
-          Transformamos ideias em{" "}
-          <span className="text-gradient-brand" style={{ backgroundImage: "linear-gradient(135deg, #CBB1DE, #B391D0, #9968C6)" }}>
-            soluções digitais
+      <div className="relative mx-auto max-w-4xl px-6 py-32 text-center md:py-40">
+        <h1
+          className="hero-enter mt-1 text-4xl font-semibold leading-[1.05] drop-shadow-sm md:text-6xl"
+          style={{ "--enter-delay": "80ms" } as CSSProperties}
+        >
+          Transformamos desafios em{" "}
+          <span
+            className="text-gradient-brand"
+            style={{
+              backgroundImage: "linear-gradient(135deg, #CBB1DE, #B391D0, #9968C6)",
+            }}
+          >
+            estratégias tecnológicas
           </span>{" "}
           que geram resultado.
         </h1>
-        <p className="mt-6 text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-          A Custom Care é a parceira tecnológica que estrutura, desenvolve e escala seu negócio.
-          Do diagnóstico ao software pronto, cuidamos de cada detalhe.
+        <p
+          className="hero-enter mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/85 drop-shadow-sm"
+          style={{ "--enter-delay": "180ms" } as CSSProperties}
+        >
+          A Custom Care é a parceira de consultoria tecnológica que estrutura, orienta e
+          escala o seu negócio. Do diagnóstico à evolução contínua, cuidamos de cada detalhe.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-3 justify-center">
-          <a href="#contato" className="btn-primary">
-            Solicitar diagnóstico gratuito
-            <ArrowRight className="h-4 w-4" />
-          </a>
-          <a href="#servicos" className="btn-ghost !text-white !border-white/25 hover:!bg-white/10">
-            Conhecer serviços
-          </a>
-        </div>
-
-        <div className="mt-14 grid grid-cols-3 gap-6 max-w-md mx-auto">
-          {[
-            { k: "+80", v: "Projetos entregues" },
-            { k: "98%", v: "Clientes satisfeitos" },
-            { k: "10+", v: "Anos de experiência" },
-          ].map((s) => (
-            <div key={s.v}>
-              <div className="text-2xl md:text-3xl font-semibold font-display">{s.k}</div>
-              <div className="text-xs text-white/60 mt-1">{s.v}</div>
+        <div
+          className="hero-enter mx-auto mt-14 grid max-w-md grid-cols-3 gap-6"
+          style={{ "--enter-delay": "320ms" } as CSSProperties}
+        >
+          {stats.map((s, i) => (
+            <div key={s.label}>
+              <div className="font-display text-2xl font-semibold tabular-nums md:text-3xl">
+                <CountUp
+                  end={s.end}
+                  prefix={s.prefix}
+                  suffix={s.suffix}
+                  duration={2200}
+                  delay={450 + i * 120}
+                />
+              </div>
+              <div className="mt-1 text-xs text-white/60">{s.label}</div>
             </div>
           ))}
         </div>

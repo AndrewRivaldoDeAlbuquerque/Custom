@@ -1,0 +1,36 @@
+{
+  "brand": {
+    "name": "Custom Care",
+    "tagline": "Consultoria Tecnológica",
+    "description": "Consultoria tecnológica que impulsiona o crescimento do seu negócio."
+  },
+  "company": {
+    "legalName": "Custom Care Tecnologia E Consultoria Ltda",
+    "cnpj": "57.860.286/0001-00",
+    "location": "Brasil"
+  },
+  "contact": {
+    "email": "contato@customcare.com.br",
+    "phoneDisplay": "+55 (81) 98787-1423",
+    "phoneMaskPlaceholder": "(81) 98787-1423",
+    "whatsapp": "5581987871423"
+  },
+  "whatsappMessages": {
+    "float": "Olá! Gostaria de saber mais sobre os serviços da Custom Care.",
+    "siteIntro": "Olá! Vim pelo *site da Custom Care*."
+  },
+  "founders": {
+    "ceo": {
+      "name": "Ricardo Santos",
+      "role": "CEO"
+    },
+    "cto": {
+      "name": "Rafael Feliciano",
+      "role": "CTO"
+    }
+  },
+  "cookie": {
+    "name": "customcare_cookie_consent",
+    "maxAgeDays": 365
+  }
+}

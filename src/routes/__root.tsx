@@ -7,10 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +36,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -77,25 +73,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
+      { title: "Custom Care | Consultoria Tecnológica" },
       {
         name: "description",
         content:
-          "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado.",
+          "Consultoria tecnológica para estruturar, orientar e escalar o seu negócio. Transformamos desafios em estratégias que geram resultado.",
       },
       { name: "author", content: "Custom Care" },
-      { property: "og:title", content: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
+      { property: "og:title", content: "Custom Care | Consultoria Tecnológica" },
       {
         property: "og:description",
         content:
-          "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado.",
+          "Consultoria tecnológica para estruturar, orientar e escalar o seu negócio. Transformamos desafios em estratégias que geram resultado.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Custom Care | Consultoria Tecnológica e Softwares Sob Medida" },
-      { name: "twitter:description", content: "Consultoria tecnológica e desenvolvimento de software sob medida. Transformamos ideias em soluções digitais que geram resultado." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/11ebc1ea-7039-4a67-82bf-2808b9e77e7f/id-preview-5b6a1859--3e0a0fe3-3ee3-40fd-b696-c2da9167a2f6.lovable.app-1784167809545.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/11ebc1ea-7039-4a67-82bf-2808b9e77e7f/id-preview-5b6a1859--3e0a0fe3-3ee3-40fd-b696-c2da9167a2f6.lovable.app-1784167809545.png" },
+      { name: "twitter:title", content: "Custom Care | Consultoria Tecnológica" },
+      {
+        name: "twitter:description",
+        content:
+          "Consultoria tecnológica para estruturar, orientar e escalar o seu negócio. Transformamos desafios em estratégias que geram resultado.",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -108,7 +106,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,
